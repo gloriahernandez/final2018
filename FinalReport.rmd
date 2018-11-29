@@ -1,6 +1,6 @@
 ---
 title: "Abacavirinol"
-author: "Put your name here!"
+author: "Gloria Hernandez"
 date: "put the date here"
 output: html_document
 ---
@@ -9,6 +9,10 @@ output: html_document
 require(tidyverse)
 require(tigerstats)
 abac <-read.csv(file="abacavirinol.csv",header=TRUE)
+Female <- filter(abac,sex=="F")
+Male <- filter(abac,sex=="M")
+Druggies <- filter(abac,Ivdrug=="user")
+LGBT <- filter(abac,LBGT=="yes")
 ```
 
 # Introduction
@@ -20,6 +24,8 @@ A new  preventative aides (abacavirinol) is under test in clinical trials. Analy
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+  
+ To analyze the effectiveness of abacavirinol we are looking at the data of each population subgroups:Female, Male, Druggies and LGBT. We recognize that our variables have categoricaland categorical data therefore we will be using barcharts for our graphical data, row&column percent for our numerical data and the chi-square test and fisher test for our inferential results. The chi-sqaure test will evaluate if there is significant assiociation bewtween two categorical variables. 
 
 #Results
 
@@ -30,16 +36,179 @@ A new  preventative aides (abacavirinol) is under test in clinical trials. Analy
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
-
+```{r}
+results <- xtabs(~infected+treatment,data=abac)
+barchartGC(results,type = "percent")
+```
+  
+ The barchart displays that drug is probably working beacuse more people that took the placebo got aids compared to those who took the drug abacavirinol. There are about 20 percent of people that got aids with the placebo.   
+  
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+colPerc(results)
+rowPerc(results)
+```
+  
+  Out of those who took the drug only about 4 percent got aids and 95.96 were not infected. Meanwhile out of those who took the placebo, 5.54 got aids and 94.46 were not infected. 
 
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisqtestGC(results, graph = TRUE)
+```
+  The chi-sqaured results show that the p value is 0.0168
+
+```{r}
+fisher.test(results)
+```
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+#Female
+#Results
+
+## Descriptive Results
+
+### Graphical Descriptive Results
+
+```{r}
+results <- xtabs(~infected+treatment,data=Female)
+```
+```{r}
+barchartGC(results,type = "percent")
+```
+
+
+### Numerical Descriptive Results
+
+```{r}
+colPerc(results)
+rowPerc(results)
+```
+
+## Inferential Results
+
+```{r}
+chisqtestGC(results, graph = TRUE)
+```
+
+```{r}
+fisher.test(results)
+```
+
+
+# Discussion and Conclusion
+
+
+#Male
+#Results
+
+
+## Descriptive Results
+
+### Graphical Descriptive Results
+
+```{r}
+results <- xtabs(~infected+treatment,data=Male)
+barchartGC(results,type = "percent")
+```
+  
+  This barchart displays that most of the people who got aids took the placebo. This supports that the drug is probably working because of those who were infected with aids, most of them took the placebo and less took the drug.
+  
+### Numerical Descriptive Results
+
+```{r}
+colPerc(results)
+rowPerc(results)
+```
+
+## Inferential Results
+
+```{r}
+chisqtestGC(results, graph = TRUE)
+```
+
+```{r}
+fisher.test(results)
+```
+ 
+# Discussion and Conclusion
+
+
+#Druggies 
+#Results
+
+## Descriptive Results
+
+### Graphical Descriptive Results
+
+
+```{r}
+results <- xtabs(~infected+treatment,data=Druggies)
+barchartGC(results,type = "percent")
+```
+  
+### Numerical Descriptive Results
+
+```{r}
+colPerc(results)
+rowPerc(results)
+```
+
+
+## Inferential Results
+
+```{r}
+chisqtestGC(results, graph = TRUE)
+```
+```{r}
+fisher.test(results)
+```
+
+
+# Discussion and Conclusion
+
+
+
+
+#LGBT 
+#Results
+
+## Descriptive Results
+
+### Graphical Descriptive Results
+
+```{r}
+results <- xtabs(~infected+treatment,data=LGBT)
+barchartGC(results,type = "percent")
+```
+  
+### Numerical Descriptive Results
+
+```{r}
+colPerc(results)
+rowPerc(results)
+```
+
+
+## Inferential Results
+
+```{r}
+chisqtestGC(results, graph = TRUE)
+```
+
+```{r}
+fisher.test(results)
+```
+ 
+# Discussion and Conclusion
+
+
+
