@@ -25,7 +25,7 @@ A new  preventative aides (abacavirinol) is under test in clinical trials. Analy
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
   
- To analyze the effectiveness of abacavirinol we are looking at the data of each population subgroups:Female, Male, Druggies and LGBT. We recognize that our variables have categoricaland categorical data therefore we will be using barcharts for our graphical data, row&column percent for our numerical data and the chi-square test and fisher test for our inferential results. The chi-sqaure test will evaluate if there is significant assiociation bewtween two categorical variables. 
+ To analyze the effectiveness of abacavirinol we are looking at the data of each population subgroups:Female, Male, Druggies and LGBT. We recognize that our variables have categorical and categorical data therefore we will be using barcharts for our graphical data, row & column percent for our numerical data and the chi-square test and fisher test for our inferential results. The chi-square test will evaluate if there is significant association between two categorical variables. 
 
 #Results
 
@@ -41,7 +41,7 @@ results <- xtabs(~infected+treatment,data=abac)
 barchartGC(results,type = "percent")
 ```
   
- The barchart displays that drug is probably working beacuse more people that took the placebo got aids compared to those who took the drug abacavirinol. There are about 20 percent of people that got aids with the placebo.   
+ The barchart displays that drug is probably working because more people that took the placebo got aids compared to those who took the drug abacavirinol. There are about 20 percent of people that got aids with the placebo.   
   
 ### Numerical Descriptive Results
 
@@ -62,7 +62,7 @@ rowPerc(results)
 chisqtestGC(results, graph = TRUE)
 ```
     
-  The chi-sqaured results show that the chi-square statistic is 5.7138. The expected value with degree of freedom is 1. The chi-squared statistic is bigger than the expected value. The p value is 0.0168, which is low therefore we can reject the null hypothesis that the drug doesn't work.
+  The chi-squared results show that the chi-square statistic is 5.7138. The expected value with degree of freedom is 1. The chi-squared statistic is bigger than the expected value. The p value is 0.0168, which is low therefore we can reject the null hypothesis that the drug doesn't work.
 
 ```{r}
 fisher.test(results)
@@ -75,7 +75,7 @@ fisher.test(results)
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
   
-  To analyze the effectiveness of the drug Abacavirinol we looked at barcharts, numerical data results, chi-squares test results and fisher test results of the popluation who took the drug vs the placebo. From these results we can conclude that your chances of not getting aids is better if you take the drug. There was more people that were not infected and took the drug and the p value was low therefore we can reject the null the hypothesis and accept the alternative hypothesis that the drug is probably working. 
+  To analyze the effectiveness of the drug Abacavirinol we looked at barcharts, numerical data results, chi-squares test results and fisher test results of the population who took the drug vs the placebo. From these results we can conclude that your chances of not getting aids is better if you take the drug. There was more people that were not infected and took the drug and the p value was low therefore we can reject the null the hypothesis and accept the alternative hypothesis that the drug is probably working. 
  
 #Female
 #Results
@@ -151,7 +151,7 @@ rowPerc(results)
 chisqtestGC(results, graph = TRUE)
 ```
   
-  The chi-squared test results demonstrate that the chi-squared statistic is 20.4718. The expected value with degrees of freedom is 1. The test statistic is greater tha nthe expected value. The p value in this result is 0.
+  The chi-squared test results demonstrate that the chi-squared statistic is 20.4718. The expected value with degrees of freedom is 1. The test statistic is greater than the expected value. The p value in this result is 0.
   
 ```{r}
 fisher.test(results)
@@ -204,7 +204,7 @@ fisher.test(results)
 
 # Discussion and Conclusion
   
-  To analyze the effectiveness of the drug we looked at barcharts, numerical data results, chi-squared test results and fisher test results of druggies who took the drug Abacavirinol vs the placebo. The p value is low and results show that more druggies who took the placebo were infected with aids rather than those who took the drug, therefore we ca reject the null hypotesis and accept the alternative.
+  To analyze the effectiveness of the drug we looked at barcharts, numerical data results, chi-squared test results and fisher test results of druggies who took the drug Abacavirinol vs the placebo. The p value is low and results show that more druggies who took the placebo were infected with aids rather than those who took the drug, therefore we can reject the null hypothesis and accept the alternative.
 
 #LGBT 
 #Results
@@ -227,7 +227,7 @@ colPerc(results)
 rowPerc(results)
 ```
   
-  The numerical results show that more people in the LGBT community who took the drug got aids rather than those who took the placebo. 50.17% of them were not infected and 49.83% of people who took the placebo were not infected as well. 
+  The numerical results show that more people in the LGBT community who took the drug got aids rather than those who took the placebo. 50.17% of them were not infected and 49.83% of people who took the placebo were not infected as well.
 
 ## Inferential Results
 
@@ -235,7 +235,7 @@ rowPerc(results)
 chisqtestGC(results, graph = TRUE)
 ```
   
-  The chi-squared test results show the chi-sqaure statistic is 3.1843. The chi-square statistic is greater than the expected value. The p value os 0.0743 and is not significant. The drug did not show significant efffectiveness so we fail to reject the null hypothesis. 
+  The chi-squared test results show the chi-square statistic is 3.1843. The chi-square statistic is greater than the expected value. The p value os 0.0743 and is not significant. The drug did not show significant effectiveness so we fail to reject the null hypothesis. 
   
 ```{r}
 fisher.test(results)
@@ -245,7 +245,7 @@ fisher.test(results)
    
 # Discussion and Conclusion
   
-  To analyze the effectiveness of the drug Abacavirinol we looked at barcharts, numerical data results, chi-squares test results and fisher test results of people in the LBGT community that took the drug vs placebo. From these results we can conclude that the drug did not show a significant amount of effectiveness and we fail to reject the null hypothesis. 
+  To analyze the effectiveness of the drug Abacavirinol we looked at barcharts, numerical data results, chi-squares test results and fisher test results of people in the LGBT community that took the drug vs placebo. From these results we can conclude that the drug did not show a significant amount of effectiveness and we fail to reject the null hypothesis. 
   
 
 
